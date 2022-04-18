@@ -17,7 +17,7 @@ namespace task3
                      word += " " + sr.ReadLine();
                  }
                /* word += " " + sr.ReadToEnd();*/
-                textArray = word.Split(' ');
+                textArray = word.Trim().Split(' ');
             }
              return numOfWord = textArray.Length;
         }
@@ -28,10 +28,11 @@ namespace task3
             int numOfWord = 0;
             using (StreamReader sr = new StreamReader(path))
             {
-                while (sr.EndOfStream != true)
+                /*while (sr.EndOfStream != true)
                 {
                     symbol += " " + sr.ReadLine();
-                }
+                }*/
+                symbol = sr.ReadToEnd();
             }
             return numOfWord = symbol.Length;
         }
@@ -56,9 +57,10 @@ namespace task3
         static void Main(string[] args)
         {
             string path = @"D:\lessons itmo\lesson8\lesson8\task3\text.txt";
-            Console.WriteLine($"Количество строк в файле равно: {NumberOfString(path)}");
             Console.WriteLine($"Количество символов в файле равно: {NumberOfSymbol(path)}");
             Console.WriteLine($"Количество слов в файле равно: {NumbersOfWords(path)}");
+            Console.WriteLine($"Количество строк в файле равно: {NumberOfString(path)}");
+
             Console.ReadKey();  
         }
     }
